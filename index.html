@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RentalPlaza – Enterprise Laptop Rental India | Corporate IT Equipment Rental</title>
+  <meta name="description" content="India's #1 Corporate Laptop Rental & Enterprise IT Equipment Rental. Bulk Laptop Rental for Companies across India. MacBook, Desktop & IT Rental Solutions for B2B."/>
+  <meta name="keywords" content="Enterprise Laptop Rental India, Corporate Laptop Rental India, Laptop Rental for Companies, Enterprise IT Equipment Rental, Corporate IT Rental Services, Bulk Laptop Rental for Companies, Corporate Desktop Rental, Enterprise IT Rental Solutions, MacBook Rental for Companies, IT Equipment Rental for Companies"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #1a56db;
+      --primary-dark: #1341b0;
+      --accent: #f59e0b;
+      --dark: #0f172a;
+      --dark2: #1e293b;
+      --gray: #64748b;
+      --light: #f1f5f9;
+      --white: #ffffff;
+      --gradient: linear-gradient(135deg, #1a56db 0%, #0ea5e9 100%);
+      --gradient-dark: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 0 5%;
+      height: 68px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px; text-decoration: none;
+    }
+    .logo-icon {
+      width: 38px; height: 38px; background: var(--gradient);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; color: #fff; font-weight: 800;
+    }
+    .logo-text { color: #fff; font-size: 1.25rem; font-weight: 700; }
+    .logo-text span { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a {
+      color: rgba(255,255,255,0.75); text-decoration: none;
+      font-size: 0.88rem; font-weight: 500; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta {
+      background: var(--gradient); color: #fff !important;
+      padding: 9px 20px; border-radius: 8px; font-weight: 600 !important;
+      transition: opacity 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--gradient-dark);
+      display: flex; align-items: center;
+      padding: 100px 5% 60px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -200px; right: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(26,86,219,0.25) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; bottom: -200px; left: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(14,165,233,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-inner {
+      max-width: 1200px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+      position: relative; z-index: 2;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(26,86,219,0.2); border: 1px solid rgba(26,86,219,0.4);
+      color: #93c5fd; padding: 6px 14px; border-radius: 50px;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.5px;
+      text-transform: uppercase; margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      font-weight: 800; color: #fff; line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .hero h1 span { 
+      background: var(--gradient); -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-desc {
+      color: rgba(255,255,255,0.65); font-size: 1.05rem;
+      line-height: 1.75; margin-bottom: 36px; max-width: 480px;
+    }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--gradient); color: #fff;
+      padding: 14px 28px; border-radius: 10px;
+      font-size: 0.95rem; font-weight: 700;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(26,86,219,0.4);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(26,86,219,0.5); }
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,0.25); color: #fff;
+      padding: 14px 28px; border-radius: 10px;
+      font-size: 0.95rem; font-weight: 600;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+      transition: all 0.2s; backdrop-filter: blur(4px);
+    }
+    .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+    .hero-stats {
+      display: flex; gap: 30px; margin-top: 42px; flex-wrap: wrap;
+    }
+    .stat { }
+    .stat-num { font-size: 1.8rem; font-weight: 800; color: #fff; }
+    .stat-num span { color: var(--accent); }
+    .stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
+
+    /* Hero Visual */
+    .hero-visual {
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .device-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px; padding: 20px 24px;
+      backdrop-filter: blur(10px);
+      display: flex; align-items: center; gap: 18px;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .device-card:hover { transform: translateX(6px); border-color: rgba(26,86,219,0.5); }
+    .device-icon {
+      width: 52px; height: 52px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; flex-shrink: 0;
+    }
+    .icon-blue { background: rgba(26,86,219,0.25); color: #60a5fa; }
+    .icon-purple { background: rgba(139,92,246,0.25); color: #a78bfa; }
+    .icon-orange { background: rgba(245,158,11,0.2); color: var(--accent); }
+    .device-info h4 { color: #fff; font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; }
+    .device-info p { color: rgba(255,255,255,0.5); font-size: 0.8rem; }
+    .device-price {
+      margin-left: auto; text-align: right; flex-shrink: 0;
+    }
+    .device-price strong { color: #4ade80; font-size: 0.9rem; font-weight: 700; display: block; }
+    .device-price span { color: rgba(255,255,255,0.4); font-size: 0.72rem; }
+
+    /* ── TICKER ── */
+    .ticker {
+      background: var(--gradient); padding: 12px 0; overflow: hidden;
+    }
+    .ticker-inner {
+      display: flex; gap: 50px; animation: ticker 20s linear infinite; width: max-content;
+    }
+    .ticker-item {
+      white-space: nowrap; color: #fff; font-size: 0.85rem; font-weight: 600;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .ticker-item i { opacity: 0.8; }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ── SECTION COMMONS ── */
+    section { padding: 80px 5%; }
+    .section-tag {
+      display: inline-block; background: #eff6ff; color: var(--primary);
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; padding: 5px 14px; border-radius: 50px;
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 800; color: var(--dark); margin-bottom: 14px; line-height: 1.2;
+    }
+    .section-title span { color: var(--primary); }
+    .section-sub { color: var(--gray); font-size: 1rem; line-height: 1.7; max-width: 560px; }
+    .section-head { margin-bottom: 50px; }
+
+    /* ── SERVICES ── */
+    .services { background: var(--light); }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .service-card {
+      background: #fff; border-radius: 18px; padding: 32px 28px;
+      border: 1px solid #e2e8f0;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--gradient); transform: scaleX(0);
+      transition: transform 0.3s; transform-origin: left;
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(26,86,219,0.1);
+      border-color: rgba(26,86,219,0.2);
+    }
+    .svc-icon {
+      width: 56px; height: 56px; border-radius: 14px;
+      background: #eff6ff; color: var(--primary);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; margin-bottom: 20px;
+    }
+    .service-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--dark); margin-bottom: 10px; }
+    .service-card p { color: var(--gray); font-size: 0.88rem; line-height: 1.65; }
+    .svc-link {
+      display: inline-flex; align-items: center; gap: 6px; margin-top: 18px;
+      color: var(--primary); font-size: 0.85rem; font-weight: 600;
+      text-decoration: none; transition: gap 0.2s;
+    }
+    .svc-link:hover { gap: 10px; }
+
+    /* ── WHY US ── */
+    .why { background: #fff; }
+    .why-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center;
+    }
+    .why-visual {
+      background: var(--gradient-dark); border-radius: 24px;
+      padding: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .metric-box {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px; padding: 22px 18px; text-align: center;
+    }
+    .metric-box i { font-size: 26px; color: #60a5fa; margin-bottom: 10px; }
+    .metric-box h4 { color: #fff; font-size: 1.5rem; font-weight: 800; }
+    .metric-box p { color: rgba(255,255,255,0.5); font-size: 0.75rem; margin-top: 4px; }
+    .why-list { list-style: none; display: flex; flex-direction: column; gap: 22px; }
+    .why-item { display: flex; align-items: flex-start; gap: 16px; }
+    .why-check {
+      width: 36px; height: 36px; border-radius: 10px; background: #eff6ff;
+      color: var(--primary); display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0; margin-top: 2px;
+    }
+    .why-text h4 { font-size: 0.95rem; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+    .why-text p { font-size: 0.85rem; color: var(--gray); line-height: 1.6; }
+
+    /* ── CATEGORIES ── */
+    .categories { background: var(--light); }
+    .cat-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px; max-width: 1200px; margin: 0 auto;
+    }
+    .cat-card {
+      background: #fff; border-radius: 16px; padding: 32px 20px;
+      text-align: center; border: 2px solid #e2e8f0;
+      text-decoration: none; display: block;
+      transition: all 0.3s;
+    }
+    .cat-card:hover {
+      border-color: var(--primary); background: var(--primary);
+      transform: translateY(-4px); box-shadow: 0 15px 35px rgba(26,86,219,0.2);
+    }
+    .cat-card i { font-size: 36px; color: var(--primary); margin-bottom: 14px; display: block; transition: color 0.3s; }
+    .cat-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--dark); transition: color 0.3s; }
+    .cat-card p { font-size: 0.78rem; color: var(--gray); margin-top: 6px; transition: color 0.3s; }
+    .cat-card:hover i, .cat-card:hover h3, .cat-card:hover p { color: #fff; }
+
+    /* ── PROCESS ── */
+    .process { background: #fff; }
+    .process-inner { max-width: 1000px; margin: 0 auto; }
+    .steps {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+      position: relative;
+    }
+    .steps::before {
+      content: ''; position: absolute; top: 30px; left: 12.5%; right: 12.5%;
+      height: 2px; background: linear-gradient(to right, var(--primary), #0ea5e9);
+      z-index: 0;
+    }
+    .step { text-align: center; position: relative; z-index: 1; }
+    .step-num {
+      width: 60px; height: 60px; border-radius: 50%;
+      background: var(--gradient); color: #fff; font-size: 1.3rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 18px; box-shadow: 0 4px 20px rgba(26,86,219,0.35);
+    }
+    .step h4 { font-size: 0.9rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+    .step p { font-size: 0.78rem; color: var(--gray); line-height: 1.6; }
+
+    /* ── INDUSTRIES ── */
+    .industries { background: var(--gradient-dark); }
+    .industries .section-title { color: #fff; }
+    .industries .section-tag { background: rgba(255,255,255,0.1); color: #93c5fd; }
+    .ind-grid {
+      display: flex; flex-wrap: wrap; gap: 12px; max-width: 1200px; margin: 0 auto;
+    }
+    .ind-pill {
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.85); padding: 10px 20px; border-radius: 50px;
+      font-size: 0.85rem; font-weight: 500; text-decoration: none;
+      transition: all 0.2s;
+    }
+    .ind-pill:hover {
+      background: rgba(26,86,219,0.4); border-color: rgba(26,86,219,0.6); color: #fff;
+    }
+
+    /* ── KEYWORDS SEO SECTION ── */
+    .seo-section { background: #fff; padding: 60px 5%; }
+    .seo-inner { max-width: 1200px; margin: 0 auto; }
+    .seo-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px;
+    }
+    .seo-tag {
+      background: #f8fafc; border: 1px solid #e2e8f0;
+      border-radius: 10px; padding: 12px 18px;
+      font-size: 0.82rem; color: var(--gray); font-weight: 500;
+      text-decoration: none; transition: all 0.2s;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .seo-tag i { color: var(--primary); font-size: 14px; }
+    .seo-tag:hover { background: #eff6ff; color: var(--primary); border-color: #bfdbfe; }
+
+    /* ── CTA BANNER ── */
+    .cta-banner {
+      background: var(--gradient); padding: 70px 5%;
+      text-align: center;
+    }
+    .cta-banner h2 { color: #fff; font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; margin-bottom: 14px; }
+    .cta-banner p { color: rgba(255,255,255,0.8); font-size: 1rem; margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-white {
+      background: #fff; color: var(--primary); padding: 14px 30px;
+      border-radius: 10px; font-size: 0.95rem; font-weight: 700;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+    .btn-ghost-white {
+      border: 2px solid rgba(255,255,255,0.5); color: #fff;
+      padding: 14px 28px; border-radius: 10px;
+      font-size: 0.95rem; font-weight: 600;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-ghost-white:hover { background: rgba(255,255,255,0.15); border-color: #fff; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark); padding: 50px 5% 28px;
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto;
+    }
+    .footer-top {
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px;
+    }
+    .footer-brand p { color: rgba(255,255,255,0.5); font-size: 0.85rem; line-height: 1.7; margin: 14px 0 20px; }
+    .footer-socials { display: flex; gap: 10px; }
+    .social-btn {
+      width: 34px; height: 34px; border-radius: 8px;
+      background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.6);
+      display: flex; align-items: center; justify-content: center; font-size: 14px;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .social-btn:hover { background: var(--primary); color: #fff; }
+    .footer-col h4 { color: #fff; font-size: 0.88rem; font-weight: 700; margin-bottom: 16px; }
+    .footer-col a {
+      display: block; color: rgba(255,255,255,0.5); font-size: 0.82rem;
+      text-decoration: none; margin-bottom: 10px; transition: color 0.2s;
+    }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08); padding-top: 22px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: gap;
+    }
+    .footer-bottom p { color: rgba(255,255,255,0.35); font-size: 0.78rem; }
+    .footer-bottom a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.78rem; }
+    .footer-bottom a:hover { color: #fff; }
+
+    /* ── FLOATING CTA ── */
+    .float-cta {
+      position: fixed; bottom: 24px; right: 24px; z-index: 998;
+      background: var(--gradient); color: #fff;
+      padding: 12px 22px; border-radius: 50px;
+      font-size: 0.85rem; font-weight: 700;
+      text-decoration: none; display: flex; align-items: center; gap: 8px;
+      box-shadow: 0 6px 25px rgba(26,86,219,0.5);
+      animation: pulse 2.5s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 6px 25px rgba(26,86,219,0.5); }
+      50% { box-shadow: 0 6px 35px rgba(26,86,219,0.75); }
+    }
+    .float-cta:hover { opacity: 0.9; }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .why-inner { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .steps::before { display: none; }
+    }
+    @media(max-width: 600px) {
+      nav .nav-links { display: none; }
+      .footer-top { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      .hero-btns { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="https://rentalplaza.in/bulk-laptop-rental/" class="nav-logo">
+      <div class="logo-icon">RP</div>
+      <span class="logo-text">Rental<span>Plaza</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#process">How It Works</a>
+      <a href="#industries">Industries</a>
+      <a href="https://rentalplaza.in/bulk-laptop-rental/" class="nav-cta"><i class="fas fa-phone-alt"></i> Get Quote</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge"><i class="fas fa-shield-alt"></i> Trusted by 1000+ Companies Across India</div>
+        <h1>India's #1 <span>Enterprise Laptop</span> Rental for B2B</h1>
+        <p class="hero-desc">Corporate Laptop Rental India | Bulk IT Equipment Rental for Companies | Enterprise IT Rental Solutions — delivered pan-India within 24 hours.</p>
+        <div class="hero-btns">
+          <a href="https://rentalplaza.in/bulk-laptop-rental/" class="btn-primary">
+            <i class="fas fa-laptop"></i> Get Bulk Quote
+          </a>
+          <a href="https://rentalplaza.in/bulk-laptop-rental/" class="btn-outline">
+            <i class="fas fa-headset"></i> Talk to Expert
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num">50K<span>+</span></div>
+            <div class="stat-label">Devices Deployed</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">500<span>+</span></div>
+            <div class="stat-label">Corporate Clients</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">25<span>+</span></div>
+            <div class="stat-label">Cities in India</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="device-card">
+          <div class="device-icon icon-blue"><i class="fas fa-laptop"></i></div>
+          <div class="device-info">
+            <h4>Enterprise Laptops</h4>
+            <p>Dell, HP, Lenovo, Asus — All Brands</p>
+          </div>
+          <div class="device-price"><strong>₹999/mo</strong><span>per unit</span></div>
+        </div>
+        <div class="device-card">
+          <div class="device-icon icon-purple"><i class="fab fa-apple"></i></div>
+          <div class="device-info">
+            <h4>MacBook Rental for Companies</h4>
+            <p>MacBook Air, MacBook Pro M-Series</p>
+          </div>
+          <div class="device-price"><strong>₹2,499/mo</strong><span>per unit</span></div>
+        </div>
+        <div class="device-card">
+          <div class="device-icon icon-orange"><i class="fas fa-desktop"></i></div>
+          <div class="device-info">
+            <h4>Corporate Desktop Rental</h4>
+            <p>AIO, Tower PCs — Bulk Orders Welcome</p>
+          </div>
+          <div class="device-price"><strong>₹799/mo</strong><span>per unit</span></div>
+        </div>
+        <div class="device-card">
+          <div class="device-icon icon-blue"><i class="fas fa-server"></i></div>
+          <div class="device-info">
+            <h4>IT Infrastructure</h4>
+            <p>Servers, Routers, Switches, NAS</p>
+          </div>
+          <div class="device-price"><strong>Custom</strong><span>quote</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker-inner">
+      <div class="ticker-item"><i class="fas fa-check-circle"></i> Enterprise Laptop Rental India</div>
+      <div class="ticker-item"><i class="fas fa-check-circle"></i> Corporate IT Rental Services</div>
+      <div class="ticker-item"><i class="fas fa-check-circle"></i> Bulk Laptop Rental for Companies</div>
+      <div class="ticker-item"><i class="fas fa-check-circle"></i> MacBook Rental for Companies</div>
+      <div class="ticker-item"><i class="fas fa-check-circle"></i> Enterprise IT Rental Solutions</div>
+      <div class="ticker-item"><i class="fas fa-check-circle"></i> Corporate Desktop Rental</div>
+      <div class="ticker-item"><i class="fas fa-check-circle"></i> IT Equipment Rental for Companies</div>
+      <!-- duplicate for seamless scroll -->
+      <div class="ticker-item"><i class="fas fa-check-circle"></i> Enterprise Laptop Rental India</div>
+      <div class="ticker-item"><i class="fas fa-check-circle"></i> Corporate IT Rental Services</div>
+      <div class="ticker-item"><i class="fas fa-check-circle"></i> Bulk Laptop Rental for Companies</div>
+      <div class="ticker-item"><i class="fas fa-check-circle"></i> MacBook Rental for Companies</div>
+      <div class="ticker-item"><i class="fas fa-check-circle"></i> Enterprise IT Rental Solutions</div>
+      <div class="ticker-item"><i class="fas fa-check-circle"></i> Corporate Desktop Rental</div>
+      <div class="ticker-item"><i class="fas fa-check-circle"></i> IT Equipment Rental for Companies</div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="section-head">
+        <div class="section-tag">Our Services</div>
+        <h2 class="section-title">Enterprise IT Rental <span>Solutions</span></h2>
+        <p class="section-sub">Complete Corporate IT Rental Services — from single-unit to bulk deployments for 10 to 10,000+ devices across India.</p>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="svc-icon"><i class="fas fa-laptop"></i></div>
+          <h3>Enterprise Laptop Rental India</h3>
+          <p>High-performance laptops for enterprise teams — Dell, HP, Lenovo, Asus. All specs, all durations, fully managed IT support included.</p>
+          <a href="https://rentalplaza.in/bulk-laptop-rental/" class="svc-link">Enquire Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="service-card">
+          <div class="svc-icon"><i class="fab fa-apple"></i></div>
+          <h3>MacBook Rental for Companies</h3>
+          <p>MacBook Air M2, MacBook Pro M3 available for creative agencies, IT firms & startups. Corporate pricing with flexible terms.</p>
+          <a href="https://rentalplaza.in/bulk-laptop-rental/" class="svc-link">Enquire Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="service-card">
+          <div class="svc-icon"><i class="fas fa-desktop"></i></div>
+          <h3>Corporate Desktop Rental</h3>
+          <p>All-in-One PCs, tower desktops & workstations for offices, BPOs, data centres. Bulk Corporate Desktop Rental with installation.</p>
+          <a href="https://rentalplaza.in/bulk-laptop-rental/" class="svc-link">Enquire Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="service-card">
+          <div class="svc-icon"><i class="fas fa-layer-group"></i></div>
+          <h3>Bulk Laptop Rental for Companies</h3>
+          <p>Scale from 10 to 10,000+ units instantly. Ideal for corporate training, project ramp-ups, seasonal workforce & events.</p>
+          <a href="https://rentalplaza.in/bulk-laptop-rental/" class="svc-link">Enquire Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="service-card">
+          <div class="svc-icon"><i class="fas fa-server"></i></div>
+          <h3>Enterprise IT Equipment Rental</h3>
+          <p>Servers, routers, switches, NAS, projectors & full IT infrastructure on flexible monthly plans for enterprises of all sizes.</p>
+          <a href="https://rentalplaza.in/bulk-laptop-rental/" class="svc-link">Enquire Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="service-card">
+          <div class="svc-icon"><i class="fas fa-tools"></i></div>
+          <h3>Managed IT Rental Services</h3>
+          <p>End-to-end Corporate IT Rental Services including deployment, AMC, remote support, replacements & asset management.</p>
+          <a href="https://rentalplaza.in/bulk-laptop-rental/" class="svc-link">Enquire Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why" id="why">
+    <div class="why-inner">
+      <div class="why-visual">
+        <div class="metric-box">
+          <i class="fas fa-building"></i>
+          <h4>1,000+</h4>
+          <p>B2B Clients Served</p>
+        </div>
+        <div class="metric-box">
+          <i class="fas fa-map-marker-alt"></i>
+          <h4>25+</h4>
+          <p>Cities Pan-India</p>
+        </div>
+        <div class="metric-box">
+          <i class="fas fa-clock"></i>
+          <h4>24hr</h4>
+          <p>Delivery Turnaround</p>
+        </div>
+        <div class="metric-box">
+          <i class="fas fa-star"></i>
+          <h4>4.9★</h4>
+          <p>Client Satisfaction</p>
+        </div>
+      </div>
+      <div class="why-content">
+        <div class="section-tag">Why RentalPlaza</div>
+        <h2 class="section-title">The B2B IT Rental <span>Partner You Can Trust</span></h2>
+        <ul class="why-list">
+          <li class="why-item">
+            <div class="why-check"><i class="fas fa-check"></i></div>
+            <div class="why-text">
+              <h4>Zero Capital Expenditure</h4>
+              <p>Rent instead of buying — preserve your working capital and convert CAPEX to OPEX with Corporate Laptop Rental India.</p>
+            </div>
+          </li>
+          <li class="why-item">
+            <div class="why-check"><i class="fas fa-check"></i></div>
+            <div class="why-text">
+              <h4>Pan-India Deployment</h4>
+              <p>IT Equipment Rental for Companies across all major cities — Mumbai, Delhi, Bengaluru, Hyderabad, Pune, Chennai & more.</p>
+            </div>
+          </li>
+          <li class="why-item">
+            <div class="why-check"><i class="fas fa-check"></i></div>
+            <div class="why-text">
+              <h4>Flexible Rental Terms</h4>
+              <p>1-month to 3-year plans. Scale up or down anytime. No lock-in penalties for Enterprise IT Rental Solutions.</p>
+            </div>
+          </li>
+          <li class="why-item">
+            <div class="why-check"><i class="fas fa-check"></i></div>
+            <div class="why-text">
+              <h4>Dedicated B2B Account Manager</h4>
+              <p>Every corporate client gets a dedicated manager for seamless ordering, billing, replacements & IT support.</p>
+            </div>
+          </li>
+        </ul>
+        <a href="https://rentalplaza.in/bulk-laptop-rental/" class="btn-primary" style="margin-top:28px;display:inline-flex;">
+          <i class="fas fa-file-invoice"></i> Request Corporate Quote
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="categories">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="section-head" style="text-align:center;">
+        <div class="section-tag">Device Catalogue</div>
+        <h2 class="section-title">Browse by <span>Device Category</span></h2>
+      </div>
+      <div class="cat-grid">
+        <a href="https://rentalplaza.in/bulk-laptop-rental/" class="cat-card">
+          <i class="fas fa-laptop"></i>
+          <h3>Corporate Laptops</h3>
+          <p>Windows & Linux</p>
+        </a>
+        <a href="https://rentalplaza.in/bulk-laptop-rental/" class="cat-card">
+          <i class="fab fa-apple"></i>
+          <h3>MacBook Rental</h3>
+          <p>Air & Pro M-Series</p>
+        </a>
+        <a href="https://rentalplaza.in/bulk-laptop-rental/" class="cat-card">
+          <i class="fas fa-desktop"></i>
+          <h3>Desktop PCs</h3>
+          <p>AIO & Tower</p>
+        </a>
+        <a href="https://rentalplaza.in/bulk-laptop-rental/" class="cat-card">
+          <i class="fas fa-tablet-alt"></i>
+          <h3>Tablets & iPads</h3>
+          <p>Bulk Orders</p>
+        </a>
+        <a href="https://rentalplaza.in/bulk-laptop-rental/" class="cat-card">
+          <i class="fas fa-server"></i>
+          <h3>Servers & NAS</h3>
+          <p>Enterprise Grade</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="process" id="process">
+    <div class="process-inner">
+      <div class="section-head" style="text-align:center;">
+        <div class="section-tag">Simple Process</div>
+        <h2 class="section-title">Get Your <span>Corporate IT Rental</span> in 4 Steps</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h4>Submit Requirement</h4>
+          <p>Share device specs, quantity & duration via our online form or call us.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h4>Receive Custom Quote</h4>
+          <p>Get a tailored bulk pricing quote within 2 business hours.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h4>Sign Agreement</h4>
+          <p>Simple B2B rental agreement. GST invoice for your accounting team.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <h4>Delivery & Setup</h4>
+          <p>Devices delivered, configured & deployed at your office within 24 hrs.</p>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:42px;">
+        <a href="https://rentalplaza.in/bulk-laptop-rental/" class="btn-primary" style="display:inline-flex;">
+          <i class="fas fa-paper-plane"></i> Start Your Rental Today
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES -->
+  <section class="industries" id="industries">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="section-head">
+        <div class="section-tag">Industries We Serve</div>
+        <h2 class="section-title">Laptop Rental for <span style="color:#60a5fa;">Every Industry</span></h2>
+        <p class="section-sub" style="color:rgba(255,255,255,0.6);">Our Corporate Laptop Rental India service caters to diverse B2B sectors nationwide.</p>
+      </div>
+      <div class="ind-grid">
+        <a href="https://rentalplaza.in/bulk-laptop-rental/" class="ind-pill"><i class="fas fa-code"></i> IT & Software Companies</a>
+        <a href="https://rentalplaza.in/bulk-laptop-rental/" class="ind-pill"><i class="fas fa-headset"></i> BPO & Call Centres</a>
+        <a href="https://rentalplaza.in/bulk-laptop-rental/" class="ind-pill"><i class="fas fa-graduation-cap"></i> EdTech & Training</a>
+        <a href="https://rentalplaza.in/bulk-laptop-rental/" class="ind-pill"><i class="fas fa-hospital"></i> Healthcare & Pharma</a>
+        <a href="https://rentalplaza.in/bulk-laptop-rental/" class="ind-pill"><i class="fas fa-university"></i> BFSI & Finance</a>
+        <a href="https://rentalplaza.in/bulk-laptop-rental/" class="ind-pill"><i class="fas fa-broadcast-tower"></i> Media & Broadcasting</a>
+        <a href="https://rentalplaza.in/bulk-laptop-rental/" class="ind-pill"><i class="fas fa-store"></i> Retail & E-commerce</a>
+        <a href="https://rentalplaza.in/bulk-laptop-rental/" class="ind-pill"><i class="fas fa-rocket"></i> Startups & MNCs</a>
+        <a href="https://rentalplaza.in/bulk-laptop-rental/" class="ind-pill"><i class="fas fa-calendar-alt"></i> Corporate Events</a>
+        <a href="https://rentalplaza.in/bulk-laptop-rental/" class="ind-pill"><i class="fas fa-flask"></i> Research & Labs</a>
+        <a href="https://rentalplaza.in/bulk-laptop-rental/" class="ind-pill"><i class="fas fa-plane"></i> Aviation & Logistics</a>
+        <a href="https://rentalplaza.in/bulk-laptop-rental/" class="ind-pill"><i class="fas fa-hard-hat"></i> Manufacturing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEO KEYWORDS SECTION -->
+  <section class="seo-section">
+    <div class="seo-inner">
+      <div class="section-head" style="text-align:center;">
+        <div class="section-tag">What We Offer</div>
+        <h2 class="section-title" style="font-size:1.5rem;">Complete <span>IT Rental Solutions</span> for Corporates</h2>
+      </div>
+      <div class="seo-grid">
+        <a href="https://rentalplaza.in/bulk-laptop-rental/" class="seo-tag"><i class="fas fa-tag"></i> Enterprise Laptop Rental India</a>
+        <a href="https://rentalplaza.in/bulk-laptop-rental/" class="seo-tag"><i class="fas fa-tag"></i> Corporate Laptop Rental India</a>
+        <a href="https://rentalplaza.in/bulk-laptop-rental/" class="seo-tag"><i class="fas fa-tag"></i> Laptop Rental for Companies</a>
+        <a href="https://rentalplaza.in/bulk-laptop-rental/" class="seo-tag"><i class="fas fa-tag"></i> Enterprise IT Equipment Rental</a>
+        <a href="https://rentalplaza.in/bulk-laptop-rental/" class="seo-tag"><i class="fas fa-tag"></i> Corporate IT Rental Services</a>
+        <a href="https://rentalplaza.in/bulk-laptop-rental/" class="seo-tag"><i class="fas fa-tag"></i> Bulk Laptop Rental for Companies</a>
+        <a href="https://rentalplaza.in/bulk-laptop-rental/" class="seo-tag"><i class="fas fa-tag"></i> Corporate Desktop Rental</a>
+        <a href="https://rentalplaza.in/bulk-laptop-rental/" class="seo-tag"><i class="fas fa-tag"></i> Enterprise IT Rental Solutions</a>
+        <a href="https://rentalplaza.in/bulk-laptop-rental/" class="seo-tag"><i class="fas fa-tag"></i> MacBook Rental for Companies</a>
+        <a href="https://rentalplaza.in/bulk-laptop-rental/" class="seo-tag"><i class="fas fa-tag"></i> IT Equipment Rental for Companies</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <h2>Ready to Rent IT Equipment for Your Company?</h2>
+    <p>Get a custom quote for Bulk Laptop Rental, MacBook Rental & Corporate IT Rental Services — pan-India delivery guaranteed.</p>
+    <div class="cta-btns">
+      <a href="https://rentalplaza.in/bulk-laptop-rental/" class="btn-white">
+        <i class="fas fa-laptop"></i> Request Bulk Quote
+      </a>
+      <a href="https://rentalplaza.in/bulk-laptop-rental/" class="btn-ghost-white">
+        <i class="fas fa-phone"></i> Call Our B2B Team
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="https://rentalplaza.in/bulk-laptop-rental/" class="nav-logo" style="margin-bottom:4px;">
+            <div class="logo-icon">RP</div>
+            <span class="logo-text">Rental<span>Plaza</span></span>
+          </a>
+          <p>India's trusted Enterprise IT Rental partner for B2B companies. Corporate Laptop Rental, MacBook Rental & IT Equipment Rental — delivered pan-India.</p>
+          <div class="footer-socials">
+            <a href="https://rentalplaza.in/bulk-laptop-rental/" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://rentalplaza.in/bulk-laptop-rental/" class="social-btn"><i class="fab fa-twitter"></i></a>
+            <a href="https://rentalplaza.in/bulk-laptop-rental/" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://rentalplaza.in/bulk-laptop-rental/" class="social-btn"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="https://rentalplaza.in/bulk-laptop-rental/">Enterprise Laptop Rental</a>
+          <a href="https://rentalplaza.in/bulk-laptop-rental/">Corporate Laptop Rental</a>
+          <a href="https://rentalplaza.in/bulk-laptop-rental/">MacBook Rental for Companies</a>
+          <a href="https://rentalplaza.in/bulk-laptop-rental/">Corporate Desktop Rental</a>
+          <a href="https://rentalplaza.in/bulk-laptop-rental/">Bulk Laptop Rental</a>
+        </div>
+        <div class="footer-col">
+          <h4>Solutions</h4>
+          <a href="https://rentalplaza.in/bulk-laptop-rental/">IT Equipment Rental</a>
+          <a href="https://rentalplaza.in/bulk-laptop-rental/">Enterprise IT Rental</a>
+          <a href="https://rentalplaza.in/bulk-laptop-rental/">Corporate IT Services</a>
+          <a href="https://rentalplaza.in/bulk-laptop-rental/">Server Rental</a>
+          <a href="https://rentalplaza.in/bulk-laptop-rental/">Event IT Rental</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="https://rentalplaza.in/bulk-laptop-rental/"><i class="fas fa-globe" style="margin-right:6px;"></i>rentalplaza.in</a>
+          <a href="mailto:info@rentalplaza.in"><i class="fas fa-envelope" style="margin-right:6px;"></i>info@rentalplaza.in</a>
+          <a href="https://rentalplaza.in/bulk-laptop-rental/"><i class="fas fa-map-marker-alt" style="margin-right:6px;"></i>Pan-India Service</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 RentalPlaza.in · Enterprise Laptop Rental India · All Rights Reserved.</p>
+        <a href="https://rentalplaza.in/bulk-laptop-rental/">Bulk Laptop Rental →</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING CTA -->
+  <a href="https://rentalplaza.in/bulk-laptop-rental/" class="float-cta">
+    <i class="fas fa-laptop"></i> Get Free Quote
+  </a>
+
+</body>
+</html>
